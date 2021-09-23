@@ -5,18 +5,27 @@ function App() {
 
   return (
     <div className="App">
-      <Person></Person>
-      <Person></Person>
-      <Person></Person>
-      <Person></Person>
-      <Person></Person>
-      <Person></Person>
 
+      <p id="title">Title</p>
+      <Person name="Rubel" nayika="Moushumi"></Person>
+      <Person name="Bapparaj" nayika="Cheka"></Person>
+    
+      <Friend phone="0189647486" address="Noakhali"></Friend>
+      <Friend phone="0159464245" address="Barishal"></Friend>
+      
     </div>
   );
 }
 
-function Person() {
+/* 
+<p id="title">Title</p>
+      <Person  name="Rubel" nayika="Moushumi"></Person>
+      <Person name="Bapparaj" nayika="Cheka"></Person>
+      <Person name="kuber" nayika="kopila"></Person> */
+
+
+function Person(props) {
+  console.log(props);
   const person = {
     backgroundColor: '#61dafb',
     border: '3px solid lightsalmon',
@@ -26,11 +35,11 @@ function Person() {
   return (
     //method 1
     <div style={person}>
-      <h1>Sakib Al Hasan</h1>
-      <h4>Profession: Cricketer</h4>
+      <h1>Name: {props.name}</h1>
+      <h4>Hero of: {props.nayika}</h4>
     </div>
 
-//method 2 for styling
+    //method 2 for styling
     // <div style={{
     //   backgroundColor: '#61dafb',
     //   border: '3px solid lightsalmon',
@@ -40,6 +49,16 @@ function Person() {
     //   <h1>Sakib Al Hasan</h1>
     //   <h4>Profession: Cricketer</h4>
     // </div>
+  );
+}
+
+function Friend(props) {
+  console.log(props);
+  return (
+    <div className="person">
+      <h1>Phone: {props.phone}</h1>
+      <h4>Address: {props.address}</h4>
+    </div>
   );
 }
 export default App;
